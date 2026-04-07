@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:fiddle.digital)",
+      "WebFetch(domain:oryzo.ai)",
+      "Bash(npm install:*)"
+    ]
+  }
+}

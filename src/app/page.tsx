@@ -4,10 +4,12 @@ import Services from "@/components/Services";
 import Work from "@/components/Work";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
+import CursorGlow from "@/components/CursorGlow";
 
 export default function Home() {
   return (
     <>
+      <CursorGlow />
       <Navbar />
       <Hero />
       <Services />

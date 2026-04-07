@@ -3,6 +3,8 @@
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
 
+const SOCIALS = ["Twitter", "GitHub", "LinkedIn", "Dribbble"];
+
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
@@ -10,71 +12,116 @@ export default function Contact() {
   const [hover, setHover] = useState(false);
 
   return (
-    <section id="contact" className="section" style={{ background: "#080808" }}>
+    <section
+      id="contact"
+      className="section"
+      style={{
+        background:
+          "radial-gradient(ellipse 100% 55% at 50% -5%, rgba(200,241,53,0.11) 0%, transparent 55%), #060608",
+        borderTop: "1px solid #1e1e2a",
+      }}
+    >
       <div className="container" ref={ref}>
 
-        {/* Top row: CTA block */}
+        {/* ── Main CTA block ── */}
         <motion.div
-          initial={shouldReduce ? false : { opacity: 0, y: 24 }}
+          initial={shouldReduce ? false : { opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            padding: "5rem 4rem",
-            background: "#0f0f0f",
-            border: "1px solid #222222",
-            borderRadius: "4px",
+            padding: "6rem 5rem",
+            background: "linear-gradient(135deg, #0d0d18 0%, #0a0a12 100%)",
+            border: "1px solid #1e1e2a",
+            borderRadius: "6px",
             marginBottom: "4rem",
             position: "relative",
             overflow: "hidden",
           }}
         >
-          {/* Background grid texture */}
-          <div style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "linear-gradient(#1a1a1a 1px, transparent 1px), linear-gradient(90deg, #1a1a1a 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-            opacity: 0.3,
-          }} />
+          {/* Grid texture */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)",
+              backgroundSize: "64px 64px",
+            }}
+          />
 
-          <div style={{ position: "relative", zIndex: 1, maxWidth: "680px" }}>
-            <div className="t-label" style={{ marginBottom: "1.5rem" }}>Ready to start?</div>
-            <h2 className="t-heading" style={{ marginBottom: "1.5rem" }}>
+          {/* Chartreuse glow orb */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "-80px",
+              right: "-80px",
+              width: "320px",
+              height: "320px",
+              borderRadius: "50%",
+              background:
+                "radial-gradient(circle, rgba(200,241,53,0.1) 0%, transparent 70%)",
+              pointerEvents: "none",
+            }}
+          />
+
+          <div style={{ position: "relative", zIndex: 1, maxWidth: "700px" }}>
+            <div className="t-mono" style={{ color: "#c8f135", marginBottom: "1.5rem" }}>
+              [ READY TO START? ]
+            </div>
+
+            <h2
+              className="t-heading"
+              style={{ marginBottom: "1.8rem", color: "#f0ede8", lineHeight: 1.0 }}
+            >
               Your competitors<br />
-              <em>are already here.</em>
+              <span style={{ color: "#c8f135" }}>are already here.</span>
             </h2>
-            <p className="t-body" style={{ marginBottom: "2.5rem", maxWidth: "480px" }}>
-              Book a free 15-minute site teardown. We'll show you exactly what's costing you leads — no pitch, no pressure.
+
+            <p
+              className="t-body"
+              style={{ marginBottom: "3rem", maxWidth: "480px", color: "#5a5a6a", lineHeight: 1.75 }}
+            >
+              Book a free 15-minute site teardown. We'll show you exactly what's
+              costing you leads — no pitch, no pressure.
             </p>
 
-            <a
-              href="mailto:hello@elevatewebworks.com"
-              className="btn-primary"
+            {/* Email CTA */}
+            <motion.a
+              href="mailto:elevatewebwork8@gmail.com"
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
-              style={{ fontSize: "0.9rem", padding: "1rem 2.5rem" }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.75rem",
+                padding: "1rem 2.5rem",
+                background: hover ? "#d4f545" : "#c8f135",
+                color: "#060608",
+                fontFamily: "var(--font-display)",
+                fontSize: "0.85rem",
+                fontWeight: 700,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                textDecoration: "none",
+                borderRadius: "2px",
+                transition: "background 0.2s ease",
+                boxShadow: hover
+                  ? "0 0 40px rgba(200,241,53,0.4)"
+                  : "0 0 20px rgba(200,241,53,0.15)",
+              }}
             >
-              {hover ? "hello@elevatewebworks.com" : "Book a Free Teardown →"}
-            </a>
+              {hover ? "elevatewebwork8@gmail.com" : "Book a Free Teardown →"}
+            </motion.a>
           </div>
-
-          {/* Decorative accent */}
-          <div style={{
-            position: "absolute",
-            bottom: "-60px",
-            right: "-60px",
-            width: "200px",
-            height: "200px",
-            borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(200,241,53,0.12) 0%, transparent 70%)",
-          }} />
         </motion.div>
 
-        {/* Footer row */}
+        {/* ── Footer strip ── */}
         <motion.div
           initial={shouldReduce ? false : { opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
           style={{
             display: "flex",
             justifyContent: "space-between",
@@ -82,26 +129,34 @@ export default function Contact() {
             flexWrap: "wrap",
             gap: "1rem",
             paddingTop: "2rem",
-            borderTop: "1px solid #222222",
+            borderTop: "1px solid #1a1a24",
           }}
         >
-          <span className="t-label">© 2026 Elevate Web Works. All rights reserved.</span>
+          <span className="t-mono" style={{ color: "#2a2a36", fontSize: "0.62rem" }}>
+            © 2026 Elevate Web Works. All rights reserved.
+          </span>
 
-          <div style={{ display: "flex", gap: "32px" }}>
-            {["Twitter", "GitHub", "LinkedIn", "Dribbble"].map((link) => (
+          <div style={{ display: "flex", gap: "28px" }}>
+            {SOCIALS.map((link) => (
               <a
                 key={link}
                 href="#"
-                className="t-label"
-                style={{ textDecoration: "none", transition: "color 0.2s ease", color: "#6b6b6b" }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#f0ede8")}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#6b6b6b")}
+                className="t-mono"
+                style={{
+                  textDecoration: "none",
+                  color: "#2a2a36",
+                  fontSize: "0.62rem",
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#c8f135")}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#2a2a36")}
               >
                 {link}
               </a>
             ))}
           </div>
         </motion.div>
+
       </div>
     </section>
   );

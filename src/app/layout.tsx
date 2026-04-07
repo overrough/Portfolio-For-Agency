@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Syne } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,18 +9,17 @@ const inter = Inter({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const syne = Syne({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-syne",
   display: "swap",
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Elevate Web Works — We Build 3D Digital Revenue Engines",
+  title: "Elevate Web Works — We Build 3D Digital Experiences",
   description:
-    "AI-accelerated, 3D-native web experiences for growing businesses. Built in 3 weeks. Not 3 months.",
+    "AI-accelerated, 3D-native web experiences for growing businesses. Built in days, not months.",
   keywords: "web design, 3D websites, agency, WebGL, Next.js, AI",
 };
 
@@ -27,11 +27,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${playfair.variable}`}
-    >
-      <body className="noise">{children}</body>
+    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+      <body className="noise">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
