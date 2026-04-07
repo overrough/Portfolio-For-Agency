@@ -61,7 +61,7 @@ function ServiceCard({ s, i }: { s: typeof SERVICES[0]; i: number }) {
       onMouseMove={handleMove}
       style={{
         background: hovered ? s.accent : "transparent",
-        border: `1px solid ${hovered ? "rgba(200,241,53,0.2)" : "#1e1e2a"}`,
+        border: `1px solid ${hovered ? "rgba(200,241,53,0.2)" : "#1e1e30"}`,
         borderRadius: "4px",
         padding: "2.5rem",
         position: "relative",
@@ -158,8 +158,8 @@ export default function Services() {
       className="section"
       style={{
         background:
-          "radial-gradient(ellipse 90% 60% at 95% 5%, rgba(200,241,53,0.06) 0%, transparent 55%), #060608",
-        borderTop: "1px solid #1e1e2a",
+          "radial-gradient(ellipse 90% 60% at 95% 5%, rgba(200,241,53,0.06) 0%, transparent 55%), #05050f",
+        borderTop: "1px solid #1e1e30",
       }}
     >
       <div className="container">
@@ -207,14 +207,14 @@ export default function Services() {
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
             gap: "1.5px",
-            background: "#1e1e2a",
+            background: "#1e1e30",
             borderRadius: "6px",
             overflow: "hidden",
           }}
           className="services-grid"
         >
           {SERVICES.map((s, i) => (
-            <div key={s.number} style={{ background: "#060608" }}>
+            <div key={s.number} style={{ background: "#05050f" }}>
               <ServiceCard s={s} i={i} />
             </div>
           ))}

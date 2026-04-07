@@ -17,8 +17,8 @@ export default function Contact() {
       className="section"
       style={{
         background:
-          "radial-gradient(ellipse 100% 55% at 50% -5%, rgba(200,241,53,0.11) 0%, transparent 55%), #060608",
-        borderTop: "1px solid #1e1e2a",
+          "radial-gradient(ellipse 100% 55% at 50% -5%, rgba(200,241,53,0.11) 0%, transparent 55%), #05050f",
+        borderTop: "1px solid #1e1e30",
       }}
     >
       <div className="container" ref={ref}>
@@ -31,7 +31,7 @@ export default function Contact() {
           style={{
             padding: "6rem 5rem",
             background: "linear-gradient(135deg, #0d0d18 0%, #0a0a12 100%)",
-            border: "1px solid #1e1e2a",
+            border: "1px solid #1e1e30",
             borderRadius: "6px",
             marginBottom: "4rem",
             position: "relative",
@@ -98,7 +98,7 @@ export default function Contact() {
                 gap: "0.75rem",
                 padding: "1rem 2.5rem",
                 background: hover ? "#d4f545" : "#c8f135",
-                color: "#060608",
+                color: "#05050f",
                 fontFamily: "var(--font-display)",
                 fontSize: "0.85rem",
                 fontWeight: 700,

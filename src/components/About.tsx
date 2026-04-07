@@ -34,8 +34,8 @@ export default function About() {
       style={{
         background:
           "radial-gradient(ellipse 70% 80% at 100% 50%, rgba(80,60,200,0.07) 0%, transparent 55%), linear-gradient(170deg, #0c0c1a 0%, #080810 100%)",
-        borderTop: "1px solid #1e1e2a",
-        borderBottom: "1px solid #1e1e2a",
+        borderTop: "1px solid #1e1e30",
+        borderBottom: "1px solid #1e1e30",
       }}
     >
       <div className="container">

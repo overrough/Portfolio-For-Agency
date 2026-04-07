@@ -5,15 +5,17 @@
   --font-body: var(--font-inter), sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Courier New", monospace;
 
-  --color-bg: #060608;
-  --color-surface: #0d0d14;
-  --color-surface-2: #13131e;
-  --color-border: #1e1e2a;
-  --color-fg: #f0ede8;
-  --color-fg-muted: #6b6b6b;
-  --color-fg-subtle: #2e2e3a;
+  /* Deep midnight — not pure black, has blue soul */
+  --color-bg: #05050f;
+  --color-surface: #0b0b18;
+  --color-surface-2: #11111f;
+  --color-border: #1e1e30;
+  --color-fg: #eeeaf6;
+  --color-fg-muted: #7070a0;
+  --color-fg-subtle: #2e2e48;
   --color-accent: #c8f135;
   --color-accent-dim: rgba(200, 241, 53, 0.08);
+  --color-purple: #7c5aff;
 }
 
 * {
@@ -23,21 +25,21 @@
 }
 
 html {
-  background-color: #060608;
-  color: #f0ede8;
+  background-color: #05050f;
+  color: #eeeaf6;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #060608;
+  background-color: #05050f;
   overflow-x: hidden;
 }
 
 ::selection {
   background: #c8f135;
-  color: #060608;
+  color: #05050f;
 }
 
 /* ─── CUSTOM CURSOR (desktop only) ───────────── */
@@ -50,10 +52,10 @@ body {
 /* Display: hero only — Syne 800 */
 .t-display {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 8vw, 8rem);
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
   color: #f0ede8;
 }
 
@@ -81,7 +83,7 @@ body {
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   font-weight: 400;
   line-height: 1.75;
-  color: #6b6b6b;
+  color: #7070a0;
 }
 
 /* Label: micro-text, tags */
@@ -91,7 +93,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #6b6b6b;
+  color: #7070a0;
 }
 
 /* Mono: technical readouts, counters */
@@ -101,7 +103,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b6b6b;
+  color: #7070a0;
 }
 
 /* ─── LAYOUT ──────────────────────────────────── */
@@ -128,7 +130,7 @@ body {
   gap: 0.6rem;
   padding: 0.9rem 2.2rem;
   background: #c8f135;
-  color: #060608;
+  color: #05050f;
   font-family: var(--font-display);
   font-size: 0.82rem;
   font-weight: 700;
@@ -184,8 +186,8 @@ body {
 
 /* ─── CARD ─────────────────────────────────────── */
 .card {
-  background: #0d0d14;
-  border: 1px solid #1e1e2a;
+  background: #0b0b18;
+  border: 1px solid #1e1e30;
   border-radius: 4px;
   padding: 2.5rem;
   position: relative;
@@ -214,7 +216,7 @@ body {
 
 /* ─── SCROLLBAR ───────────────────────────────── */
 ::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #060608; }
+::-webkit-scrollbar-track { background: #05050f; }
 ::-webkit-scrollbar-thumb { background: #2e2e3a; border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: #6b6b6b; }
 

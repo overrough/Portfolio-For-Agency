@@ -107,7 +107,7 @@ export default function Hero() {
         flexDirection: "column",
         justifyContent: "center",
         overflow: "hidden",
-        background: "radial-gradient(ellipse 80% 60% at 65% 50%, rgba(200,241,53,0.04) 0%, transparent 60%), #060608",
+        background: "radial-gradient(ellipse 70% 70% at 75% 50%, rgba(124,90,255,0.12) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 60% 45%, rgba(200,241,53,0.05) 0%, transparent 50%), #05050f",
       }}
     >
       {/* 3D scene */}

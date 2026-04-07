@@ -30,7 +30,7 @@ export default function Navbar() {
         style={{
           borderBottom: scrolled ? "1px solid #1a1a1a" : "1px solid transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
-          background: scrolled ? "rgba(8,8,8,0.85)" : "transparent",
+          background: scrolled ? "rgba(5,5,15,0.9)" : "transparent",
         }}
       >
         <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "72px" }}>
@@ -71,6 +71,7 @@ export default function Navbar() {
             </Link>
             {/* Mobile hamburger */}
             <button
+              type="button"
               onClick={() => setMenuOpen(!menuOpen)}
               className="show-mobile"
               style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}
@@ -98,7 +99,7 @@ export default function Navbar() {
               top: "72px",
               left: 0,
               right: 0,
-              background: "#0f0f0f",
+              background: "#0b0b18",
               borderBottom: "1px solid #222222",
               zIndex: 49,
               padding: "2rem 1.25rem",

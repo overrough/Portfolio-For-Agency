@@ -45,7 +45,7 @@ function ProjectRow({ project, i }: { project: Project; i: number }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        borderBottom: "1px solid #1e1e2a",
+        borderBottom: "1px solid #1e1e30",
         padding: "4rem 0",
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
@@ -84,7 +84,7 @@ function ProjectRow({ project, i }: { project: Project; i: number }) {
           <span className="t-mono" style={{ color: hovered ? "#c8f135" : "#2a2a36", transition: "color 0.3s", fontSize: "0.62rem" }}>
             [{project.index}]
           </span>
-          <span className="t-mono" style={{ color: "#1e1e2a", fontSize: "0.62rem" }}>—</span>
+          <span className="t-mono" style={{ color: "#1e1e30", fontSize: "0.62rem" }}>—</span>
           <span className="t-mono" style={{ color: "#2a2a36", fontSize: "0.62rem" }}>{project.category}</span>
           <span className="t-mono" style={{ marginLeft: "auto", color: "#2a2a36", fontSize: "0.62rem" }}>{project.year}</span>
         </div>
@@ -143,9 +143,9 @@ function ProjectRow({ project, i }: { project: Project; i: number }) {
                 padding: "5px 12px",
                 borderWidth: "1px",
                 borderStyle: "solid",
-                borderColor: hovered ? "#2e2e3a" : "#1e1e2a",
+                borderColor: hovered ? "#2e2e48" : "#1e1e30",
                 borderRadius: "2px",
-                color: hovered ? "#6b6b8a" : "#2e2e3a",
+                color: hovered ? "#6b6b8a" : "#2e2e48",
                 fontSize: "0.6rem",
                 transition: "border-color 0.3s ease, color 0.3s ease",
               }}
@@ -175,7 +175,7 @@ function ProjectRow({ project, i }: { project: Project; i: number }) {
             textTransform: "uppercase",
             borderWidth: "1px",
             borderStyle: "solid",
-            borderColor: hovered ? "rgba(200,241,53,0.5)" : "#2e2e3a",
+            borderColor: hovered ? "rgba(200,241,53,0.5)" : "#2e2e48",
             borderRadius: "2px",
             textDecoration: "none",
             transition: "color 0.25s ease, border-color 0.25s ease",
@@ -199,8 +199,8 @@ export default function Work() {
       className="section"
       style={{
         background:
-          "radial-gradient(ellipse 70% 50% at 5% 95%, rgba(200,241,53,0.04) 0%, transparent 55%), #060608",
-        borderTop: "1px solid #1e1e2a",
+          "radial-gradient(ellipse 70% 50% at 5% 95%, rgba(200,241,53,0.04) 0%, transparent 55%), #05050f",
+        borderTop: "1px solid #1e1e30",
       }}
     >
       <div className="container">
@@ -235,7 +235,7 @@ export default function Work() {
         </div>
 
         {/* Project list */}
-        <div style={{ borderTop: "1px solid #1e1e2a" }}>
+        <div style={{ borderTop: "1px solid #1e1e30" }}>
           {PROJECTS.map((project, i) => (
             <ProjectRow key={project.index} project={project} i={i} />
           ))}
