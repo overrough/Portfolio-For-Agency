@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import dynamic from "next/dynamic";
 import React, { useEffect, useRef, useState } from "react";
+import FlipText from "./FlipText";
 
 const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
 
@@ -81,16 +82,16 @@ function Stat({ num, suffix, label }: { num: number; suffix: string; label: stri
       <div
         style={{
           fontFamily: "var(--font-display)",
-          fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
+          fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)",
           fontWeight: 800,
-          color: "#f0ede8",
+          color: "#eeeaf6",
           lineHeight: 1,
           letterSpacing: "-0.03em",
         }}
       >
         {count}{suffix}
       </div>
-      <div className="t-mono" style={{ marginTop: "6px", color: "#444" }}>{label}</div>
+      <div className="t-mono" style={{ marginTop: "6px", color: "#7070a0" }}>{label}</div>
     </div>
   );
 }
@@ -99,6 +100,7 @@ function Stat({ num, suffix, label }: { num: number; suffix: string; label: stri
 export default function Hero() {
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
         width: "100%",
@@ -111,25 +113,16 @@ export default function Hero() {
       }}
     >
       {/* 3D scene */}
-      <div
-        style={{
-          position: "absolute",
-          right: "-5%",
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: "58%",
-          height: "88%",
-        }}
-      >
+      <div className="hero-canvas-wrap">
         <HeroCanvas />
       </div>
 
       {/* Text content */}
       <div
-        className="container"
-        style={{ position: "relative", zIndex: 10, paddingTop: "130px", paddingBottom: "110px" }}
+        className="container hero-content-container"
+        style={{ position: "relative", zIndex: 10 }}
       >
-        <div style={{ maxWidth: "660px" }}>
+        <div className="hero-text-wrap">
 
           {/* Status badge */}
           <motion.div
@@ -148,10 +141,10 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Headline — line-by-line reveal */}
+          {/* Headline */}
           <h1 className="t-display" style={{ marginBottom: "2rem" }}>
             {["We build", "experiences", "that close deals."].map((line, i) => (
-              <span key={i} style={{ display: "block", overflow: "hidden", lineHeight: "1.0" }}>
+              <span key={i} style={{ display: "block", overflow: "hidden", lineHeight: "1.05" }}>
                 <motion.span
                   style={{ display: "block" }}
                   initial={{ y: "105%" }}
@@ -170,10 +163,9 @@ export default function Hero() {
           <motion.p
             className="t-body"
             style={{
-              fontSize: "clamp(0.95rem, 1.15vw, 1.1rem)",
               lineHeight: 1.75,
               marginBottom: "3rem",
-              maxWidth: "460px",
+              maxWidth: "440px",
               color: "#5a5a6a",
             }}
             initial={{ opacity: 0, y: 8 }}
@@ -186,23 +178,29 @@ export default function Hero() {
 
           {/* CTAs */}
           <motion.div
+            className="hero-ctas"
             style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            <MagneticLink href="#contact">Book a Free Audit →</MagneticLink>
-            <MagneticLink href="#work" variant="ghost">See Our Work</MagneticLink>
+            <MagneticLink href="#contact">
+              <FlipText>Book a Free Audit</FlipText> →
+            </MagneticLink>
+            <MagneticLink href="#work" variant="ghost">
+              <FlipText>See Our Work</FlipText>
+            </MagneticLink>
           </motion.div>
 
           {/* Stats */}
           <motion.div
+            className="hero-stats"
             style={{
               display: "flex",
               gap: "52px",
-              marginTop: "5rem",
+              marginTop: "4rem",
               paddingTop: "2.5rem",
-              borderTop: "1px solid #1e1e2a",
+              borderTop: "1px solid #1e1e30",
               flexWrap: "wrap",
             }}
             initial={{ opacity: 0 }}
@@ -227,7 +225,7 @@ export default function Hero() {
           borderTop: "1px solid #1a1a24",
           padding: "11px 0",
           overflow: "hidden",
-          background: "rgba(6,6,8,0.85)",
+          background: "rgba(5,5,15,0.92)",
           backdropFilter: "blur(12px)",
           zIndex: 20,
         }}
@@ -247,7 +245,7 @@ export default function Hero() {
               style={{
                 display: "inline-block",
                 padding: "0 2.2rem",
-                color: i % 5 === 0 ? "#c8f135" : "#2a2a36",
+                color: i % 5 === 0 ? "#c8f135" : "#3a3a5a",
                 fontSize: "0.62rem",
               }}
             >
@@ -257,8 +255,9 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — hidden on mobile to avoid clash with ticker */}
       <motion.div
+        className="hero-scroll-hint"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.2 }}
@@ -285,6 +284,63 @@ export default function Hero() {
           }}
         />
       </motion.div>
+
+      <style jsx>{`
+        /* ── Desktop (default) ── */
+        .hero-canvas-wrap {
+          position: absolute;
+          right: -5%;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 58%;
+          height: 88%;
+          z-index: 0;
+        }
+        .hero-content-container {
+          padding-top: 130px;
+          padding-bottom: 110px;
+        }
+        .hero-text-wrap {
+          max-width: 660px;
+        }
+        .hero-scroll-hint {
+          display: flex;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 768px) {
+          .hero-canvas-wrap {
+            width: 100% !important;
+            right: 0 !important;
+            left: 0 !important;
+            top: 0 !important;
+            transform: none !important;
+            height: 100% !important;
+            opacity: 0.55;
+          }
+          .hero-content-container {
+            padding-top: 110px !important;
+            padding-bottom: 90px !important;
+          }
+          .hero-text-wrap {
+            max-width: 100% !important;
+          }
+          .hero-stats {
+            gap: 28px !important;
+            margin-top: 3rem !important;
+          }
+          .hero-ctas {
+            flex-direction: column !important;
+          }
+          .hero-ctas a {
+            width: 100%;
+            justify-content: center;
+          }
+          .hero-scroll-hint {
+            display: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

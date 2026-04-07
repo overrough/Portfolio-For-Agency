@@ -227,6 +227,14 @@ export default function Services() {
           .services-grid {
             grid-template-columns: 1fr !important;
           }
+          /* Stack header vertically on mobile */
+          .services-header {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+          .services-header p {
+            max-width: 100% !important;
+          }
         }
       `}</style>
     </section>

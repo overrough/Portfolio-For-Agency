@@ -60,9 +60,18 @@ export default function About() {
               [ STUDIO ]
             </div>
 
-            <h2 className="t-heading" style={{ marginBottom: "2.5rem", color: "#f0ede8" }}>
+            <h2
+              className="t-heading"
+              style={{
+                marginBottom: "2.5rem",
+                color: "#f0ede8",
+                lineHeight: 1.2,
+                paddingBottom: "0.12em",
+                overflow: "visible",
+              }}
+            >
               The anti-<br />
-              <span style={{ color: "#c8f135" }}>agency.</span>
+              <span style={{ color: "#c8f135", display: "inline-block" }}>agency.</span>
             </h2>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.4rem" }}>

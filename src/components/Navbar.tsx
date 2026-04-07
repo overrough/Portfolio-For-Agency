@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import FlipText from "./FlipText";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,9 +16,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "Work", href: "#work" },
+    { label: "Work",     href: "#work" },
     { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
+    { label: "Pricing",  href: "#pricing" },
+    { label: "About",    href: "#about" },
   ];
 
   return (
@@ -47,28 +49,31 @@ export default function Navbar() {
           {/* Desktop nav */}
           <nav style={{ display: "flex", alignItems: "center", gap: "40px" }} className="hidden-mobile">
             {navLinks.map((link) => (
-              <Link
+              <FlipText
                 key={link.href}
+                tag="a"
                 href={link.href}
                 className="t-label"
                 style={{
-                  color: "#6b6b6b",
+                  color: "#7070a0",
                   textDecoration: "none",
-                  transition: "color 0.2s ease",
                 }}
-                onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#f0ede8")}
-                onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#6b6b6b")}
               >
                 {link.label}
-              </Link>
+              </FlipText>
             ))}
           </nav>
 
           {/* CTA */}
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-            <Link href="#contact" className="btn-primary" style={{ padding: "0.6rem 1.25rem", fontSize: "0.72rem" }}>
+            <FlipText
+              tag="a"
+              href="#contact"
+              className="btn-primary"
+              style={{ padding: "0.6rem 1.25rem", fontSize: "0.72rem" }}
+            >
               Get a Free Audit
-            </Link>
+            </FlipText>
             {/* Mobile hamburger */}
             <button
               type="button"

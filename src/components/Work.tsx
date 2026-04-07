@@ -2,6 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
+import FlipText from "./FlipText";
 
 const PROJECTS = [
   {
@@ -181,7 +182,7 @@ function ProjectRow({ project, i }: { project: Project; i: number }) {
             transition: "color 0.25s ease, border-color 0.25s ease",
           }}
         >
-          View Live ↗
+          <FlipText style={{ color: "inherit" }}>View Live</FlipText> ↗
         </motion.a>
       </div>
     </motion.article>
